@@ -14,12 +14,6 @@ body {
 
 /* ========================================================= */
 /* Base Layout */
-/* ========================================================= */
-
-.song {
-  visibility: hidden;
-}
-
 .container {
   height: 100vh;
   width: 100vw;
@@ -39,10 +33,7 @@ body {
 }
 
 /* ========================================================= */
-/* Text Sizes — Now Responsive */
-/* clamp(min, preferred, max) */
-/* ========================================================= */
-
+/* Text Sizes — Responsive */
 .one {
   font-size: clamp(2rem, 6vw, 4.5rem);
 }
@@ -71,10 +62,6 @@ body {
   font-size: clamp(0.9rem, 3vw, 1.2rem);
 }
 
-.text-box span {
-  visibility: hidden;
-}
-
 .text-box .fake-btn {
   background-color: rgb(21, 161, 237);
   border-radius: 4px;
@@ -86,11 +73,14 @@ body {
   font-size: clamp(0.8rem, 3vw, 1rem);
 }
 
+/* ========================================================= */
+/* Ideas Section */
 .five p {
   font-size: clamp(1.4rem, 5vw, 2.2rem);
   position: absolute;
   left: 0;
   right: 0;
+  text-align: center;
 }
 
 .idea-3 strong {
@@ -104,29 +94,30 @@ body {
 }
 
 .idea-5 span,
-.idea-6 span,
+.wish-hbd span {
+  display: inline-block;
+}
 
+/* ========================================================= */
+/* IDEA-6 FIXED */
 .idea-6 {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: clamp(10px, 3vw, 25px);
-  margin-top: 2rem;
-  padding: 0 5vw;
+  gap: 10px; /* jarak antar baris */
+  margin-top: 20px;
 }
 
 .idea-6 span {
-  font-size: clamp(4rem, 15vw, 12rem);
-  line-height: 0.9;
-  display: inline-block;
-  white-space: nowrap;
+  display: block;
+  font-size: clamp(3rem, 10vw, 10rem);
+  text-align: center;
+  line-height: 1.1;
 }
-
 
 /* ========================================================= */
 /* Images Section */
-/* ========================================================= */
-
 .six {
   position: relative;
   top: 10vh;
@@ -149,8 +140,6 @@ body {
 
 /* ========================================================= */
 /* Baloons */
-/* ========================================================= */
-
 .baloons img {
   position: absolute;
   width: clamp(80px, 20vw, 150px);
@@ -170,8 +159,6 @@ body {
 
 /* ========================================================= */
 /* Sections Seven & Eight */
-/* ========================================================= */
-
 .seven,
 .eight {
   height: 100vh;
@@ -201,8 +188,6 @@ body {
 
 /* ========================================================= */
 /* Wishes */
-/* ========================================================= */
-
 .wish-hbd {
   font-size: clamp(1.8rem, 6vw, 3.2rem);
   margin: 0;
@@ -222,8 +207,6 @@ body {
 
 /* ========================================================= */
 /* Replay Button */
-/* ========================================================= */
-
 #replay {
   cursor: pointer;
   z-index: 3;
@@ -231,8 +214,6 @@ body {
 
 /* ========================================================= */
 /* Mobile Tweaks */
-/* ========================================================= */
-
 @media screen and (max-width: 500px) {
   .text-box .fake-btn {
     bottom: -40px;
@@ -245,5 +226,9 @@ body {
 
   .six .hat {
     width: clamp(35px, 14vw, 60px);
+  }
+
+  .idea-6 span {
+    font-size: clamp(2rem, 12vw, 6rem);
   }
 }
