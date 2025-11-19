@@ -48,28 +48,29 @@ const animationTimeline = () => {
 
     const tl = new TimelineMax();
 
+    // Section 0 - show container
     tl.to(".container", 0.6, { visibility: "visible" })
 
-    // Section 1
+    // Section 1 - Greeting
     .from(".one", 0.7, { opacity: 0, y: 10 })
     .from(".two", 0.4, { opacity: 0, y: 10 })
-    .to(".one", 0.7, { opacity: 0, y: 10 }, "+=5") // lebih lama
+    .to(".one", 0.7, { opacity: 0, y: 10 }, "+=5") // durasi lebih lama
     .to(".two", 0.7, { opacity: 0, y: 10 }, "-=0.5")
 
-    // Section 2
+    // Section 2 - Birthday message
     .from(".three", 0.7, { opacity: 0, y: 10 })
     .to(".three", 0.7, { opacity: 0, y: 10 }, "+=5")
 
-    // Section 3 - Text Box
+    // Section 3 - Chatbox
     .from(".four", 0.7, { scale: 0.2, opacity: 0 })
     .from(".fake-btn", 0.3, { scale: 0.2, opacity: 0 })
     .staggerTo(".hbd-chatbox span", 2, { visibility: "visible" }, 0.05) // lebih lama
-    .to(".fake-btn", 0.1, { backgroundColor: "rgb(127, 206, 248)" }, "+=6") // jeda lama
+    .to(".fake-btn", 0.1, { backgroundColor: "rgb(127, 206, 248)" }, "+=6")
     .to(".four", 0.5, { scale: 0.2, opacity: 0, y: -150 }, "+=1")
 
-    // Section 4 - Idea 1~5
+    // Section 4 - Idea 1 ~ 5
     .from(".idea-1", 0.7, ideaTextTrans)
-    .to(".idea-1", 0.7, ideaTextTransLeave, "+=5") // lebih lama
+    .to(".idea-1", 0.7, ideaTextTransLeave, "+=5")
     .from(".idea-2", 0.7, ideaTextTrans)
     .to(".idea-2", 0.7, ideaTextTransLeave, "+=5")
     .from(".idea-3", 0.7, ideaTextTrans)
@@ -91,26 +92,26 @@ const animationTimeline = () => {
         opacity: 0
     }, "+=1")
     .to(".idea-5 span", 0.7, { rotation: 90, x: 8 }, "+=1.4")
-    .to(".idea-5", 0.7, { scale: 0.2, opacity: 0 }, "+=4") // jeda lebih lama
+    .to(".idea-5", 0.7, { scale: 0.2, opacity: 0 }, "+=4")
 
-    // Section 5 - Idea 6 (teks panjang)
-    .staggerFrom(".idea-6 span", 1, { // lebih lama
+    // Section 5 - Idea 6 (panjang)
+    .staggerFrom(".idea-6 span", 1.5, { // durasi lebih lama
         scale: 1.5,
         opacity: 0,
         rotation: 15,
         ease: Expo.easeOut,
     }, 0.25)
-    .staggerTo(".idea-6 span", 1, {
+    .staggerTo(".idea-6 span", 1.5, {
         scale: 1,
         opacity: 0,
         rotation: -15,
         ease: Expo.easeOut,
-    }, 0.25, "+=5") // durasi tampil lama supaya terbaca
+    }, 0.25, "+=5") // delay sebelum fade out lebih lama
 
     // Section 6 - Baloons
     .staggerFromTo(".baloons img", 3, { opacity: 0.9, y: 1400 }, { opacity: 1, y: -1000 }, 0.2)
 
-    // Section 7 - Profile
+    // Section 7 - Profile + Hat
     .from(".profile-picture", 0.5, { scale: 3.5, opacity: 0, x: 25, y: -25, rotationZ: -45 }, "-=2")
     .from(".hat", 0.5, { x: -100, y: 350, rotation: -180, opacity: 0 })
 
@@ -123,7 +124,7 @@ const animationTimeline = () => {
 
     // Section 9 - Final Message
     .staggerFrom(".nine p", 1.2, ideaTextTrans, 1.5)
-    .to(".last-smile", 0.5, { rotation: 90 }, "+=2"); // lebih lama
+    .to(".last-smile", 0.5, { rotation: 90 }, "+=2");
 
     // Restart Animation on click
     const replyBtn = document.getElementById("replay");
