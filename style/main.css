@@ -2,10 +2,19 @@ html {
   box-sizing: border-box;
 }
 
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
+  overflow-x: hidden;
 }
+
+/* ========================================================= */
+/* Base Layout */
+/* ========================================================= */
 
 .song {
   visibility: hidden;
@@ -13,46 +22,53 @@ body {
 
 .container {
   height: 100vh;
+  width: 100vw;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
   text-align: center;
   visibility: hidden;
-  width: 100vw;
 }
 
 .container > div {
-  left: 0;
   position: absolute;
+  left: 0;
   right: 0;
   top: 20vh;
+  padding: 0 5vw;
 }
 
+/* ========================================================= */
+/* Text Sizes — Now Responsive */
+/* clamp(min, preferred, max) */
+/* ========================================================= */
+
 .one {
-  font-size: 4.5rem;
+  font-size: clamp(2rem, 6vw, 4.5rem);
 }
 
 .two {
-  font-size: 1.2rem;
+  font-size: clamp(0.9rem, 3vw, 1.4rem);
   font-weight: lighter;
 }
 
 .three {
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 3.3rem);
 }
 
 .four .text-box {
-  border: 3px solid #aaa;
-  border-radius: 5px;
+  width: min(600px, 90%);
   margin: 0 auto;
-  padding: 10px;
+  padding: 12px;
+  border: 2px solid #aaa;
+  border-radius: 5px;
   position: relative;
-  width: 600px;
 }
 
 .text-box p {
   margin: 0;
   text-align: left;
+  font-size: clamp(0.9rem, 3vw, 1.2rem);
 }
 
 .text-box span {
@@ -61,18 +77,19 @@ body {
 
 .text-box .fake-btn {
   background-color: rgb(21, 161, 237);
-  border-radius: 3px;
-  bottom: -50px;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
   color: #fff;
-  padding: .5rem 1rem;
   position: absolute;
-  right: 5px;
+  bottom: -45px;
+  right: 10px;
+  font-size: clamp(0.8rem, 3vw, 1rem);
 }
 
 .five p {
-  font-size: 2rem;
-  left: 0;
+  font-size: clamp(1.4rem, 5vw, 2.2rem);
   position: absolute;
+  left: 0;
   right: 0;
 }
 
@@ -83,17 +100,22 @@ body {
 }
 
 .five .idea-5 {
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
 }
 
-.idea-5 span, .idea-6 span, .wish-hbd span {
+.idea-5 span,
+.idea-6 span,
+.wish-hbd span {
   display: inline-block;
 }
 
-.idea-6 span{
-  font-size: 15rem;
+.idea-6 span {
+  font-size: clamp(6rem, 20vw, 15rem);
 }
 
+/* ========================================================= */
+/* Images Section */
+/* ========================================================= */
 
 .six {
   position: relative;
@@ -103,22 +125,25 @@ body {
 
 .six img {
   display: inline-block;
-  height: 350px;
-  max-width: 100%;
-  /* height: auto; */
+  max-width: 90%;
+  height: auto;
 }
 
 .six .hat {
-  left: 41.5%;
   position: absolute;
-  /* transform: scale(0.1); */
-  top: -35%;
-  width: 80px;
+  width: clamp(40px, 12vw, 80px);
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
+/* ========================================================= */
+/* Baloons */
+/* ========================================================= */
+
 .baloons img {
-  display: inline-block;
   position: absolute;
+  width: clamp(80px, 20vw, 150px);
 }
 
 .baloons img:nth-child(even) {
@@ -133,7 +158,12 @@ body {
   left: 30%;
 }
 
-.seven, .eight {
+/* ========================================================= */
+/* Sections Seven & Eight */
+/* ========================================================= */
+
+.seven,
+.eight {
   height: 100vh;
   position: fixed;
   top: 0;
@@ -141,152 +171,69 @@ body {
 }
 
 .eight svg {
-  left: 0;
   position: absolute;
+  left: 0;
   top: 0;
+  width: clamp(12px, 4vw, 25px);
   visibility: hidden;
-  width: 25px;
   z-index: -1;
 }
 
-.eight svg:nth-child(1) {
-  fill: #bd6ecf;
-  left: 5vw;
-  top: 7vh;
-}
+.eight svg:nth-child(1) { fill: #bd6ecf; left: 5vw; top: 7vh; }
+.eight svg:nth-child(2) { fill: #7dd175; left: 35vw; top: 23vh; }
+.eight svg:nth-child(3) { fill: #349d8b; left: 23vw; top: 33vh; }
+.eight svg:nth-child(4) { fill: #347a9d; left: 57vw; top: 43vh; }
+.eight svg:nth-child(5) { fill: #c66053; left: 7vw; top: 68vh; }
+.eight svg:nth-child(6) { fill: #bfaa40; left: 77vw; top: 42vh; }
+.eight svg:nth-child(7) { fill: #e3bae8; left: 83vw; top: 68vh; }
+.eight svg:nth-child(8) { fill: #8762cb; left: 37vw; top: 86vh; }
+.eight svg:nth-child(9) { fill: #9a90da; left: 87vw; top: 94vh; }
 
-.eight svg:nth-child(2) {
-  fill: #7dd175;
-  left: 35vw;
-  top: 23vh;
-}
-
-.eight svg:nth-child(3) {
-  fill: #349d8b;
-  left: 23vw;
-  top: 33vh;
-}
-
-.eight svg:nth-child(4) {
-  fill: #347a9d;
-  left: 57vw;
-  top: 43vh;
-}
-
-.eight svg:nth-child(5) {
-  fill: #c66053;
-  left: 7vw;
-  top: 68vh;
-}
-
-.eight svg:nth-child(6) {
-  fill: #bfaa40;
-  left: 77vw;
-  top: 42vh;
-}
-
-.eight svg:nth-child(7) {
-  fill: #e3bae8;
-  left: 83vw;
-  top: 68vh;
-}
-
-.eight svg:nth-child(8) {
-  fill: #8762cb;
-  left: 37vw;
-  top: 86vh;
-}
-
-.eight svg:nth-child(9) {
-  fill: #9a90da;
-  left: 87vw;
-  top: 94vh;
-}
+/* ========================================================= */
+/* Wishes */
+/* ========================================================= */
 
 .wish-hbd {
-  font-size: 3em;
+  font-size: clamp(1.8rem, 6vw, 3.2rem);
   margin: 0;
   text-transform: uppercase;
 }
 
 .wish h5 {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 4vw, 2rem);
   font-weight: lighter;
   margin: 10px 0 0;
 }
 
 .nine p {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 5vw, 2rem);
   font-weight: lighter;
 }
+
+/* ========================================================= */
+/* Replay Button */
+/* ========================================================= */
 
 #replay {
   cursor: pointer;
   z-index: 3;
 }
 
-/* Media Queries */
-@media screen and (max-height: 1000px) {
-  .six .hat {
-    left: 40%;
-  }
-}
-
-@media screen and (max-height: 800px) {
-  .six .hat {
-    left: 37%;
-  }
-}
-
-@media screen and (max-height: 700px) {
-  .six .hat {
-    left: 32%;
-  }
-}
-
-@media screen and (max-height: 850px) and (max-width: 450px) {
-  .six .hat {
-    left: 32%;
-  }
-}
+/* ========================================================= */
+/* Mobile Tweaks */
+/* ========================================================= */
 
 @media screen and (max-width: 500px) {
-  .container {
-    width: 90%;
-  }
-
-  .four .text-box {
-    width: 90%;
-  }
-
   .text-box .fake-btn {
-    bottom: -38px;
-    right: 5px;
+    bottom: -40px;
+    right: 10px;
   }
 
   .idea-5 span {
     display: block;
   }
 
-  .idea-6 span {
-    font-size: 10rem;
-  }
-
   .six .hat {
-    /* top: -20px; */
-    width: 50px;
-  }
-
-  .wish-hbd {
-    font-size: 2.2em;
-  }
-
-  .wish h5 {
-    font-size: 1.4rem;
-  }
-
-  .nine p {
-    font-size: 1.5rem;
-    font-weight: lighter;
+    width: clamp(35px, 14vw, 60px);
   }
 }
