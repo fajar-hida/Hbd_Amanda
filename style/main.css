@@ -14,6 +14,12 @@ body {
 
 /* ========================================================= */
 /* Base Layout */
+/* ========================================================= */
+
+.song {
+  visibility: hidden;
+}
+
 .container {
   height: 100vh;
   width: 100vw;
@@ -33,7 +39,9 @@ body {
 }
 
 /* ========================================================= */
-/* Text Sizes — Responsive */
+/* Text Sizes — Responsive with clamp() */
+/* ========================================================= */
+
 .one {
   font-size: clamp(2rem, 6vw, 4.5rem);
 }
@@ -62,6 +70,10 @@ body {
   font-size: clamp(0.9rem, 3vw, 1.2rem);
 }
 
+.text-box span {
+  visibility: hidden;
+}
+
 .text-box .fake-btn {
   background-color: rgb(21, 161, 237);
   border-radius: 4px;
@@ -74,13 +86,14 @@ body {
 }
 
 /* ========================================================= */
-/* Ideas Section */
+/* Idea Section */
+/* ========================================================= */
+
 .five p {
   font-size: clamp(1.4rem, 5vw, 2.2rem);
   position: absolute;
   left: 0;
   right: 0;
-  text-align: center;
 }
 
 .idea-3 strong {
@@ -99,25 +112,50 @@ body {
 }
 
 /* ========================================================= */
-/* IDEA-6 FIXED */
+/* FIX: IDEA-6 PROPORTIONAL & AUTO-LINE WRAP */
+/* ========================================================= */
+
 .idea-6 {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* agar teks panjang auto-line */
   align-items: center;
   justify-content: center;
-  gap: 10px; /* jarak antar baris */
-  margin-top: 20px;
+  font-size: clamp(2rem, 5vw, 6rem);
+  line-height: 1.2;
+  white-space: normal; /* penting agar wrap */
+  overflow-wrap: break-word;
+  padding: 0 5vw;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 2s forwards; /* durasi tampil 2 detik */
+  animation-delay: 0.5s; /* delay sedikit agar muncul setelah idea-5 */
 }
 
 .idea-6 span {
   display: block;
-  font-size: clamp(3rem, 10vw, 10rem);
-  text-align: center;
-  line-height: 1.1;
+  margin: 0.2em 0;
+  font-size: clamp(1.8rem, 4vw, 4rem);
+}
+
+/* ========================================================= */
+/* Animation Keyframes */
+/* ========================================================= */
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ========================================================= */
 /* Images Section */
+/* ========================================================= */
+
 .six {
   position: relative;
   top: 10vh;
@@ -140,6 +178,8 @@ body {
 
 /* ========================================================= */
 /* Baloons */
+/* ========================================================= */
+
 .baloons img {
   position: absolute;
   width: clamp(80px, 20vw, 150px);
@@ -159,6 +199,8 @@ body {
 
 /* ========================================================= */
 /* Sections Seven & Eight */
+/* ========================================================= */
+
 .seven,
 .eight {
   height: 100vh;
@@ -188,6 +230,8 @@ body {
 
 /* ========================================================= */
 /* Wishes */
+/* ========================================================= */
+
 .wish-hbd {
   font-size: clamp(1.8rem, 6vw, 3.2rem);
   margin: 0;
@@ -207,6 +251,8 @@ body {
 
 /* ========================================================= */
 /* Replay Button */
+/* ========================================================= */
+
 #replay {
   cursor: pointer;
   z-index: 3;
@@ -214,6 +260,8 @@ body {
 
 /* ========================================================= */
 /* Mobile Tweaks */
+/* ========================================================= */
+
 @media screen and (max-width: 500px) {
   .text-box .fake-btn {
     bottom: -40px;
@@ -228,7 +276,11 @@ body {
     width: clamp(35px, 14vw, 60px);
   }
 
+  .idea-6 {
+    font-size: clamp(1.8rem, 6vw, 4rem);
+  }
+
   .idea-6 span {
-    font-size: clamp(2rem, 12vw, 6rem);
+    font-size: clamp(1.5rem, 5vw, 3rem);
   }
 }
