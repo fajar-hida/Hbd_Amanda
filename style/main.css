@@ -104,32 +104,22 @@ body {
 }
 
 .idea-5 span,
-/* SCENE IDEA-6 — lebih lama, mobile friendly, proporsional */
+.idea-6 span,
+
 .idea-6 {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(10px, 3vw, 25px);
+  margin-top: 2rem;
   padding: 0 5vw;
-  text-align: center;
 }
 
 .idea-6 span {
-  display: block;
-  opacity: 0;
-  animation: fadeInSlow 3s ease forwards;
-  font-size: clamp(1.3rem, 5vw, 2.2rem);
-  line-height: 1.4;
-  margin-bottom: 1rem;
-  word-wrap: break-word;
-}
-
-/* Baris kedua muncul lebih lambat */
-.idea-6 span:nth-child(2) {
-  animation-delay: 3.2s;
-}
-
-/* Animasi fade-in lembut */
-@keyframes fadeInSlow {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
+  font-size: clamp(4rem, 15vw, 12rem);
+  line-height: 0.9;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 
